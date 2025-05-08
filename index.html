@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Web CV / Proposal - Nama Lengkap</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+  /* Reset and base */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    color: #222;
+    max-width: 360px;
+    margin: auto;
+    padding: 20px;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .profile-photo {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #4a90e2;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.5);
+    margin: 0 auto 15px;
+    display: block;
+  }
+  header h1 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin: 0 0 4px;
+    color: #334e68;
+  }
+  header p {
+    margin: 0;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #5f7381;
+  }
+  a.contact-link {
+    color: #4a90e2;
+    text-decoration: none;
+  }
+  a.contact-link:hover {
+    text-decoration: underline;
+  }
+  main {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+  }
+  section {
+    margin-bottom: 28px;
+  }
+  section h2 {
+    font-weight: 700;
+    font-size: 1.6rem;
+    color: #4a90e2;
+    border-bottom: 3px solid #4a90e2;
+    padding-bottom: 6px;
+    margin-bottom: 18px;
+  }
+  .summary {
+    font-style: italic;
+    font-weight: 500;
+    color: #4a4a4a;
+    line-height: 1.5;
+  }
+  /* Skills with images */
+  .skills-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+  .skill-item {
+    background: #e1ebff;
+    border-radius: 14px;
+    width: 72px;
+    height: 72px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 8px rgba(74,144,226,0.3);
+    cursor: default;
+    transition: transform 0.25s ease;
+  }
+  .skill-item:hover {
+    transform: translateY(-6px);
+  }
+  .skill-item img {
+    max-width: 38px;
+    max-height: 38px;
+    margin-bottom: 6px;
+  }
+  .skill-item span {
+    font-size: 0.75rem;
+    color: #334e68;
+    font-weight: 600;
+  }
+  /* Experience/Education */
+  .experience, .education {
+    border-left: 4px solid #4a90e2;
+    padding-left: 16px;
+  }
+  .item {
+    margin-bottom: 20px;
+  }
+  .item h3 {
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: #2f3e4d;
+    margin-bottom: 3px;
+  }
+  .item span {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: #64707d;
+    display: block;
+  }
+  .item p {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: #46525e;
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+  /* Proposal & toggle */
+  .proposal p {
+    font-weight: 500;
+    color: #4a4a4a;
+    line-height: 1.5;
+  }
+  button.btn-toggle-projects {
+    background-color: #4a90e2;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 5px 18px rgba(74,144,226,0.6);
+    transition: background-color 0.3s ease;
+    margin-top: 18px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  button.btn-toggle-projects:hover {
+    background-color: #3971cc;
+  }
+  #projects-container {
+    margin-top: 20px;
+    display: none;
+    background: #ebf1fc;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: inset 0 0 8px rgb(74 144 226 / 0.2);
+  }
+  #projects-container .item {
+    margin-bottom: 16px;
+  }
+  #projects-container .item:last-child {
+    margin-bottom: 0;
+  }
+  #projects-container h3 {
+    font-weight: 600;
+    color: #2f3e4d;
+    margin-bottom: 6px;
+    font-size: 1.1rem;
+  }
+  #projects-container p {
+    font-size: 0.94rem;
+    color: #4a4a4a;
+    line-height: 1.45;
+  }
+  /* Responsive */
+  @media(max-width: 360px) {
+    .skill-item {
+      width: 64px;
+      height: 64px;
+    }
+    .skill-item img {
+      max-width: 32px;
+      max-height: 32px;
+    }
+    .skill-item span {
+      font-size: 0.7rem;
+    }
+  }
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+.social-icons img:hover {
+  transform: scale(1.2);
+}
+</style>
+</head>
+<body>
+<header>
+  <img src="profile.jpg" alt="Foto Nama Lengkap" class="profile-photo" />
+  <h1>MUHAMMAD SEKH ABDUL MAULANA</h1>
+</header>
+
+<main>
+  <section>
+    <h2>TENTANG SAYA</h2>
+    <p class="summary">
+      Saya adalah siswa jurusan Teknik Komputer dan Jaringan (TKJ) yang mempelajari cara merakit komputer, mengelola jaringan, mengenal bahasa pemprograman dan memahami teknologi informasi. Jurusan ini membantu saya memahami dunia teknologi dan mempersiapkan diri untuk masa depan di bidang IT.
+    </p>
+  </section>
+
+  <section>
+    <h2>KEAHLIAN</h2>
+    <ul class="skills-list">
+      <li class="skill-item">
+        <img src="instalasi.png" alt="INSTALASI COMPUTER" />
+        <span>INSTALASI COMPUTER</span>
+      </li>
+      <li class="skill-item">
+        <img src="html.png" alt="HTML" />
+        <span>HTML</span>
+      </li>
+      <li class="skill-item">
+        <img src="css.png" alt="CSS" />
+        <span>CSS</span>
+      </li>
+      <li class="skill-item">
+        <img src="javascript.png" alt="JAVASCRIPT" />
+        <span>JAVASCRIPT</span>
+      </li>
+      <li class="skill-item">
+        <img src="network.png" alt="Network" />
+        <span>NETWORK</span>
+      </li>
+      <li class="skill-item">
+        <img src="design.png" alt="design" />
+        <span>DESIGN</span>
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>PENGALAMAN</h2>
+    <div class="experience">
+      <div class="item">
+        <h3>MERAKIT DAN MENGINSTAL KOMPUTER</h3>
+        <span>2023-2025</span>
+        <p>Menguasai proses perakitan PC dan instalasi sistem operasi.</p>
+      </div>
+      <div class="item">
+        <h3>Mengatur jaringan LAN </h3>
+        <span>2023-2024</span>
+        <p>membuat dan mengatur jaringan lokal (Local Area Network)</p>
+      </div>
+     <div class="item">
+        <h3>Mengatasi troubleshooting jaringan atau komputer </h3>
+        <span>2024</span>
+        <p>Menangani masalah koneksi internet, perangkat keras, atau sistem operasi.</p>
+      </div>
+     <div class="item">
+        <h3>Membuat program sederhana menggunakan bahasa html,css dan javascript.</h3>
+        <span>2024-sekarang</span>
+        <p>membuat website statis dan memahami logika dasar pemrograman </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>PENDIDIKAN</h2>
+    <div class="education">
+      <div class="item">
+        <h3>SMK HASYIM ASY'ARI BOJONG TEGAL</h3>
+        <span>XI TJKT 1</span>
+        <p>Fokus dalam materi pemrograman, pengembangan web, dan teknologi sistem komputer.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>PENJELASAN KEAHLIAN</h2>
+    <p>"Saya Memiliki keahlian dalam instalasi komputer, pemrograman web (HTML, CSS, JS), perancangan jaringan komputer, serta desain dan pengembangan tampilan web.”</p>
+    <button id="toggleProjectsBtn" class="btn-toggle-projects" aria-expanded="false" aria-controls="projects-container">Tampilkan Detail Skills</button>
+    <div id="projects-container" aria-hidden="true">
+      <div class="item">
+        <h3>Instalasi Komputer</h3>
+        <p>Kemampuan memasang, mengatur, dan mengkonfigurasi perangkat keras dan sistem operasi komputer agar siap digunakan.</p>
+      </div>
+      <div class="item">
+        <h3>HTML (HyperText Markup Language)</h3>
+        <p>Skill membuat struktur dasar halaman web, seperti teks, gambar, link, dan tabel menggunakan tag HTML.</p>
+      </div>
+ <div class="item">
+        <h3>CSS (Cascading Style Sheets)</h3>
+        <p>Kemampuan mendesain tampilan web (warna, layout, font, dsb) agar lebih menarik dan responsif.</p>
+      </div>
+ <div class="item">
+        <h3>JavaScript (JS)</h3>
+        <p>Kemampuan menambahkan interaktivitas pada web, seperti validasi form, slider, pop-up, dan animasi.</p>
+      </div>
+ <div class="item">
+        <h3>Jaringan Komputer (Network)</h3>
+        <p>Skill dalam merancang, membangun, dan mengkonfigurasi jaringan LAN/WAN, termasuk IP addressing dan troubleshooting jaringan.</p>
+      </div>
+ <div class="item">
+        <h3>Desain Web</h3>
+        <p>Kemampuan merancang tampilan dan user interface (UI) web yang menarik dan mudah digunakan dengan memperhatikan prinsip UX (User Experience).</p>
+      </div>
+    </div>
+  </section>
+</main>
+<script>
+  const btn = document.getElementById('toggleProjectsBtn');
+  const projectsContainer = document.getElementById('projects-container');
+
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    if (expanded) {
+      projectsContainer.style.display = 'none';
+      btn.setAttribute('aria-expanded', 'false');
+      projectsContainer.setAttribute('aria-hidden', 'true');
+      btn.textContent = 'Tampilkan Detail Keahlian';
+    } else {
+      projectsContainer.style.display = 'block';
+      btn.setAttribute('aria-expanded', 'true');
+      projectsContainer.setAttribute('aria-hidden', 'false');
+      btn.textContent = 'Sembunyikan Detail Keahlian';
+    }
+  });
+</script>
+  <footer class="site-footer">
+  <h3>Maull</h3>
+  <p> Student | TJKT </p>
+  <p>© 2025 Maull</p>
+  <div class="social-icons">
+    <a href="https://wa.me/628568534288" target="_blank" title="WhatsApp">
+      <img src="whatsapp.png" alt="WhatsApp" />
+    </a>
+    </a>
+    <a href="https://www.instagram.com/maullxt?igsh=M3pubHdpeHdrbWsw&utm_source=qr" target="_blank" title="Instagram">
+      <img src="instagram.png" alt="Instagram" />
+    </a>
+  </div>
+</footer>
+</body>
+</html>
+</content>
+</create_file>
