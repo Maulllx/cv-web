@@ -2,363 +2,582 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-<title>Web CV / Proposal - M.SEKH ABDUL MAULANA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Portfolio Saya</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
-  /* Reset and base */
-  *, *::before, *::after {
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+  * {
     box-sizing: border-box;
   }
   body {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-    color: #222;
-    max-width: 360px;
-    margin: auto;
-    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    background: #f9f9f9;
+    color: #333;
   }
   header {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  .profile-photo {
-    width: 128px;
-    height: 128px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid #4a90e2;
-    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.5);
-    margin: 0 auto 15px;
-    display: block;
-  }
-  header h1 {
-    font-weight: 700;
-    font-size: 2.5rem;
-    margin: 0 0 4px;
-    color: #334e68;
-  }
-  header p {
-    margin: 0;
-    font-weight: 500;
-    font-size: 1rem;
-    color: #5f7381;
-  }
-  a.contact-link {
-    color: #4a90e2;
-    text-decoration: none;
-  }
-  a.contact-link:hover {
-    text-decoration: underline;
-  }
-  main {
-    background: white;
-    border-radius: 16px;
-    padding: 20px;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.1);
-  }
-  section {
-    margin-bottom: 28px;
-  }
-  section h2 {
-    font-weight: 700;
-    font-size: 1.6rem;
-    color: #4a90e2;
-    border-bottom: 3px solid #4a90e2;
-    padding-bottom: 6px;
-    margin-bottom: 18px;
-  }
-  .summary {
-    font-style: italic;
-    font-weight: 500;
-    color: #4a4a4a;
-    line-height: 1.5;
-  }
-  /* Skills with images */
-  .skills-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #222;
+    color: white;
     display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-  }
-  .skill-item {
-    background: #e1ebff;
-    border-radius: 14px;
-    width: 72px;
-    height: 72px;
-    display: flex;
-    flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
-    justify-content: center;
-    box-shadow: 0 3px 8px rgba(74,144,226,0.3);
-    cursor: default;
-    transition: transform 0.25s ease;
+    padding: 15px 30px;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
   }
-  .skill-item:hover {
-    transform: translateY(-6px);
-  }
-  .skill-item img {
-    max-width: 38px;
-    max-height: 38px;
-    margin-bottom: 6px;
-  }
-  .skill-item span {
-    font-size: 0.75rem;
-    color: #334e68;
-    font-weight: 600;
-  }
-  /* Experience/Education */
-  .experience, .education {
-    border-left: 4px solid #4a90e2;
-    padding-left: 16px;
-  }
-  .item {
-    margin-bottom: 20px;
-  }
-  .item h3 {
-    font-weight: 700;
-    font-size: 1.15rem;
-    color: #2f3e4d;
-    margin-bottom: 3px;
-  }
-  .item span {
-    font-style: italic;
-    font-size: 0.9rem;
-    color: #64707d;
-    display: block;
-  }
-  .item p {
-    font-weight: 500;
-    font-size: 0.95rem;
-    color: #46525e;
-    margin-top: 6px;
-    line-height: 1.4;
-  }
-  /* Proposal & toggle */
-  .proposal p {
-    font-weight: 500;
-    color: #4a4a4a;
-    line-height: 1.5;
-  }
-  button.btn-toggle-projects {
-    background-color: #4a90e2;
+  .nav-button {
+    background: #000000;
     border: none;
     color: white;
-    padding: 12px 20px;
-    border-radius: 25px;
-    font-weight: 600;
-    font-size: 1rem;
+    padding: 10px 18px;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 4px;
     cursor: pointer;
-    box-shadow: 0 5px 18px rgba(74,144,226,0.6);
-    transition: background-color 0.3s ease;
-    margin-top: 18px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    position: relative;
   }
-  button.btn-toggle-projects:hover {
-    background-color: #3971cc;
+  .nav-button:focus {
+    outline: none;
+    box-shadow: 0 0 8px #000000;
   }
-  #projects-container {
-    margin-top: 20px;
+  .nav-menu {
+    position: absolute;
+    top: 48px;
+    right: 0;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0 8px 14px rgba(0,0,0,0.15);
     display: none;
-    background: #ebf1fc;
-    border-radius: 12px;
-    padding: 16px;
-    box-shadow: inset 0 0 8px rgb(74 144 226 / 0.2);
+    min-width: 160px;
   }
-  #projects-container .item {
-    margin-bottom: 16px;
+  .nav-menu.show {
+    display: block;
   }
-  #projects-container .item:last-child {
-    margin-bottom: 0;
-  }
-  #projects-container h3 {
+  .nav-menu a {
+    display: block;
+    padding: 12px 18px;
+    color: #222;
+    text-decoration: none;
     font-weight: 600;
-    color: #2f3e4d;
-    margin-bottom: 6px;
-    font-size: 1.1rem;
+    border-bottom: 1px solid #eee;
   }
-  #projects-container p {
-    font-size: 0.94rem;
-    color: #4a4a4a;
-    line-height: 1.45;
+  .nav-menu a:last-child {
+    border-bottom: none;
   }
-  /* Responsive */
-  @media(max-width: 360px) {
-    .skill-item {
-      width: 64px;
-      height: 64px;
-    }
-    .skill-item img {
-      max-width: 32px;
-      max-height: 32px;
-    }
-    .skill-item span {
-      font-size: 0.7rem;
-    }
+  .nav-menu a:hover {
+    background: #000000;
+    color: white;
   }
-.social-icons img {
-  width: 24px;
-  height: 24px;
-  transition: transform 0.3s ease;
+
+  main {
+    padding-top: 80px;
+    max-width: 960px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  section {
+    margin-bottom: 70px;
+  }
+  /* Foto dan Perkenalan utama */
+  #home-section {
+    text-align: center;
+    padding: 40px 20px 20px 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+  }
+  #home-section img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #000000;
+    margin-bottom: 20px;
+  }
+  #home-section h1 {
+    margin: 0 0 10px 0;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #000000;
+  }
+  #home-section p.intro {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.5;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Section Titles */
+  h2.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #000000;
+    display: inline-block;
+    padding-bottom: 4px;
+  }
+
+  /* Keahlian (Skills) */
+  #skills-section .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 20px;
+  }
+  #skills-section .skill-item {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+  }
+  #skills-section .skill-item:hover {
+    box-shadow: 0 8px 20px rgba(0,87,231,0.5);
+  }
+  #skills-section .skill-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 10px;
+  }
+  #skills-section .skill-item p {
+    margin: 0;
+    font-weight: 600;
+    color: #333;
+  }
+
+  /* Pendidikan (Education) */
+  #education-section ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  #education-section li {
+    background: white;
+    margin-bottom: 12px;
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  #education-section li h3 {
+    margin: 0 0 6px 0;
+    font-weight: 700;
+    color: #000000;
+  }
+  #education-section li span {
+    color: #555;
+    font-style: italic;
+  }
+
+  /* Proyek (Projects) */
+  #projects-section ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  #projects-section li {
+    background: white;
+    margin-bottom: 14px;
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  #projects-section li h3 {
+    margin: 0 0 6px 0;
+    font-weight: 700;
+    color: #000000;
+  }
+  #projects-section li p {
+    margin: 0;
+  }
+
+  /* Hobi (Hobbies) */
+#hobbies-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap: 20px;
+    margin-bottom: 0; /* Menghilangkan margin bawah */
 }
-.social-icons img:hover {
-  transform: scale(1.2);
+
+#hobbies-section .hobby-item {
+    background: white;
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    text-align: center;
 }
+
+#hobbies-section .hobby-item img,
+#hobbies-section .hobby-item video {
+    width: 100%;
+    max-height: 180px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 8px;
+    display: block; /* Pastikan video ditampilkan sebagai blok */
+}
+
+#hobbies-section .hobby-item p {
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+  /* Kontak (Contact) */
+  #contact-section {
+    text-align: center;
+    padding: 30px 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+  }
+  #contact-section h2 {
+    margin-bottom: 20px;
+  }
+  .contact-links a {
+    margin: 0 15px;
+    display: inline-block;
+    color: #000000;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+  }
+  .contact-links a:hover {
+    color: #003bb5;
+  }
+
+  /* Icons for whatsapp and instagram */
+  .icon {
+    vertical-align: middle;
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
+  }
+
+  /* Footer - CR */
+  footer {
+    background: #222;
+    color: #bbb;
+    text-align: center;
+    padding: 15px 10px;
+    font-size: 0.9rem;
+    user-select: none;
+  }
+
+  /* Modal Styles */
+  #modalOverlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.6);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+  }
+  #modalOverlay.show {
+    display: flex;
+  }
+  #modalContent {
+    background: white;
+    border-radius: 12px;
+    max-width: 400px;
+    padding: 25px 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    text-align: center;
+    position: relative;
+  }
+  #modalContent h3 {
+    margin: 0 0 15px 0;
+    color: #000000;
+  }
+  #modalContent p {
+    color: #444;
+    line-height: 1.4;
+  }
+  #modalClose {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    font-weight: 700;
+    color: #777;
+    cursor: pointer;
+  }
+  #modalClose:hover {
+    color: #000000;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    header {
+      padding: 12px 18px;
+    }
+    .nav-button {
+      padding: 8px 14px;
+      font-size: 14px;
+    }
+    #home-section h1 {
+      font-size: 2rem;
+    }
+    #home-section p.intro {
+      font-size: 1rem;
+    }
+    #skills-section .skills-grid,
+    #hobbies-section {
+      grid-template-columns: repeat(auto-fit, minmax(140px,1fr));
+    }
+    #modalContent {
+      margin: 10px;
+      max-width: 90vw;
+      padding: 20px 15px;
+    }
+  }
 </style>
 </head>
 <body>
 <header>
-  <img src="profile.jpg" alt="Foto Nama Lengkap" class="profile-photo" />
-  <h1>MUHAMMAD SEKH ABDUL MAULANA</h1>
+  <button id="navToggle" class="nav-button" aria-haspopup="true" aria-expanded="false" aria-controls="navMenu">Home &#x25BC;</button>
+  <nav id="navMenu" class="nav-menu" role="menu" aria-label="Main navigation">
+    <a href="#home-section" role="menuitem" tabindex="-1">Perkenalan</a>
+    <a href="#skills-section" role="menuitem" tabindex="-1">Keahlian</a>
+    <a href="#education-section" role="menuitem" tabindex="-1">Pendidikan</a>
+    <a href="#projects-section" role="menuitem" tabindex="-1">Proyek</a>
+    <a href="#hobbies-section" role="menuitem" tabindex="-1">Hobi</a>
+    <a href="#contact-section" role="menuitem" tabindex="-1">Kontak</a>
+  </nav>
 </header>
 
 <main>
-  <section>
-    <h2>TENTANG SAYA</h2>
-    <p class="summary">
-      Saya adalah siswa jurusan Teknik Komputer dan Jaringan (TKJ) yang mempelajari cara merakit komputer, mengelola jaringan, mengenal bahasa pemprograman dan memahami teknologi informasi. Jurusan ini membantu saya memahami dunia teknologi dan mempersiapkan diri untuk masa depan di bidang IT.
-    </p>
+  <section id="home-section" tabindex="0">
+    <img src="profile.jpg" alt="Foto Saya" />
+    <h1>MUHAMMAD SEKH ABDUL MAULANA</h1>
+    <p class="intro">Saya adalah siswa jurusan Teknik Komputer dan Jaringan (TKJ) yang mempelajari cara merakit komputer, mengelola jaringan, mengenal bahasa pemprograman dan memahami teknologi informasi. Jurusan ini membantu saya memahami dunia teknologi dan mempersiapkan diri untuk masa depan di bidang IT.</p>
   </section>
 
-  <section>
-    <h2>KEAHLIAN</h2>
-    <ul class="skills-list">
-      <li class="skill-item">
-        <img src="instalasi.png" alt="INSTALASI COMPUTER" />
-        <span>INSTALASI COMPUTER</span>
-      </li>
-      <li class="skill-item">
+  <section id="skills-section" tabindex="0">
+    <h2 class="section-title">Keahlian</h2>
+    <div class="skills-grid">
+      <div class="skill-item" data-name="HTML" data-desc="HTML (HyperText Markup Language) adalah bahasa markup standar untuk membuat halaman web. HTML bukan bahasa pemrograman seperti JavaScript, melainkan struktur (kerangka) dari halaman web." tabindex="0" role="button" aria-pressed="false" aria-label="Info keahlian HTML">
         <img src="html.png" alt="HTML" />
-        <span>HTML</span>
-      </li>
-      <li class="skill-item">
+        <p>HTML</p>
+      </div>
+      <div class="skill-item" data-name="CSS" data-desc="CSS (Cascading Style Sheets) adalah bahasa yang digunakan untuk mengatur tampilan (desain/visual) dari elemen HTML di halaman web. Dengan CSS, kamu bisa mengubah warna, font, ukuran, jarak, posisi, dan animasi elemen." tabindex="0" role="button" aria-pressed="false" aria-label="Info keahlian CSS">
         <img src="css.png" alt="CSS" />
-        <span>CSS</span>
+        <p>CSS</p>
+      </div>
+      <div class="skill-item" data-name="JavaScript" data-desc="JavaScript adalah bahasa pemrograman untuk membuat halaman web menjadi interaktif dan dinamis." tabindex="0" role="button" aria-pressed="false" aria-label="Info keahlian JavaScript">
+        <img src="javascript.png" alt="JavaScript" />
+        <p>JavaScript</p>
+      </div>
+      <div class="skill-item" data-name="Instalasi Komputer" data-desc="Instalasi komputer adalah proses memasang atau menyiapkan perangkat keras (hardware) dan perangkat lunak (software) agar komputer dapat berfungsi dengan baik dan siap digunakan sesuai kebutuhan." tabindex="0" role="button" aria-pressed="false" aria-label="Info keahlian Instalasi komputer">
+        <img src="instalasi.png" alt="Instalasi Komputer" />
+        <p>Instalasi Komputer</p>
+      </div>
+      <div class="skill-item" data-name="Design Website" data-desc="Desain website adalah proses merancang tampilan visual dan struktur halaman web agar menarik, fungsional, dan mudah digunakan oleh pengunjung. Tujuannya bukan hanya estetika, tapi juga kenyamanan penggunaan (user experience/UX) dan efektivitas dalam menyampaikan informasi." tabindex="0" role="button" aria-pressed="false" aria-label="Info keahlian design website">
+        <img src="design.png" alt="Design Website" />
+        <p>Design Website</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education-section" tabindex="0">
+    <h2 class="section-title">Pendidikan</h2>
+    <ul>
+      <li>
+        <h3>SD</h3>
+        <span>SDN PASARMINGGU 03 JAKARTA SELATAN 2015-2020</span>
       </li>
-      <li class="skill-item">
-        <img src="javascript.png" alt="JAVASCRIPT" />
-        <span>JAVASCRIPT</span>
-      </li>
-      <li class="skill-item">
-        <img src="network.png" alt="Network" />
-        <span>NETWORK</span>
-      </li>
-      <li class="skill-item">
-        <img src="design.png" alt="design" />
-        <span>DESIGN</span>
+      <li>
+        <h3>MTS</h3>
+        <span>MTS NU NURUL HUDA TEMBONGWAH TEGAL 2021-2023</span>
+     </li>
+   <li>
+        <h3>SMK</h3>
+        <span>SMK HASYIM ASy'Ari Bojong Kab Tegal Desember 2023 - Sekarang </span>
+        <p>Jurusan TJKT.</p>
       </li>
     </ul>
   </section>
 
-  <section>
-    <h2>PENGALAMAN</h2>
-    <div class="experience">
-      <div class="item">
+  <section id="projects-section" tabindex="0">
+    <h2 class="section-title">Proyek</h2>
+    <ul>
+      <li>
         <h3>MERAKIT DAN MENGINSTAL KOMPUTER</h3>
-        <span>2024-2025</span>
         <p>Menguasai proses perakitan PC dan instalasi sistem operasi.</p>
-      </div>
-      <div class="item">
-        <h3>Mengatur jaringan LAN </h3>
-        <span>2024-2025</span>
+      </li>
+      <li>
+        <h3>Mengatur jaringan LAN</h3>
         <p>membuat dan mengatur jaringan lokal (Local Area Network)</p>
-      </div>
-     <div class="item">
-        <h3>Mengatasi troubleshooting jaringan atau komputer </h3>
-        <span>2024</span>
+      </li>
+   <li>
+        <h3>Mengatasi troubleshooting jaringan atau komputer</h3>
         <p>Menangani masalah koneksi internet, perangkat keras, atau sistem operasi.</p>
-      </div>
-     <div class="item">
+      </li>
+      <li>
         <h3>Membuat program sederhana menggunakan bahasa html,css dan javascript.</h3>
-        <span>2024-sekarang</span>
-        <p>membuat website statis dan memahami logika dasar pemrograman </p>
-      </div>
-    </div>
+        <p>membuat website statis dan memahami logika dasar pemrograman</p>
+      </li>
+    </ul>
   </section>
 
-  <section>
-    <h2>PENDIDIKAN</h2>
-    <div class="education">
-      <div class="item">
-        <h3>SMK HASYIM ASY'ARI BOJONG TEGAL</h3>
-        <span>XI TJKT 1</span>
-        <p>Fokus dalam materi pemrograman, pengembangan web, dan teknologi sistem komputer.</p>
-      </div>
+<section id="hobbies-section" tabindex="0">
+    <h2 class="section-title">Hobi</h2>
+    <div class="hobbies-section">
+        <h2 class="section-title">Hiking / Explore Alam</h2>
+        <div class="hobby-item">
+            <img src="slamet01.png" alt="Slamet 3428 Mdpl" />
+            <p>Mt Slamet 3428 Mdpl</p>
+        </div>
+        <div class="hobby-item">
+            <img src="slamet02.png" alt="3428 mdpl" />
+            <p>3428 mdpl</p>
+        </div>
+        <div class="hobby-item">
+            <img src="sindoro01.png" alt="Sindoro 3153 mdpl" />
+            <p>Mt Sindoro 3153 Mdpl</p>
+        </div>
+        <div class="hobby-item">
+            <video width="100%" controls poster="SlametThumb.jpg">
+                <source src="Slamet.mp4" type="video/mp4">
+                Browser kamu tidak mendukung video.
+            </video>
+            <p>3428</p>
+        </div>
     </div>
-  </section>
+</section>
 
-  <section>
-    <h2>PENJELASAN KEAHLIAN</h2>
-    <p>"Saya Memiliki keahlian dalam instalasi komputer, pemrograman web (HTML, CSS, JS), perancangan jaringan komputer, serta desain dan pengembangan tampilan web.”</p>
-    <button id="toggleProjectsBtn" class="btn-toggle-projects" aria-expanded="false" aria-controls="projects-container">Tampilkan Detail Skills</button>
-    <div id="projects-container" aria-hidden="true">
-      <div class="item">
-        <h3>Instalasi Komputer</h3>
-        <p>Kemampuan memasang, mengatur, dan mengkonfigurasi perangkat keras dan sistem operasi komputer agar siap digunakan.</p>
-      </div>
-      <div class="item">
-        <h3>HTML (HyperText Markup Language)</h3>
-        <p>Skill membuat struktur dasar halaman web, seperti teks, gambar, link, dan tabel menggunakan tag HTML.</p>
-      </div>
- <div class="item">
-        <h3>CSS (Cascading Style Sheets)</h3>
-        <p>Kemampuan mendesain tampilan web (warna, layout, font, dsb) agar lebih menarik dan responsif.</p>
-      </div>
- <div class="item">
-        <h3>JavaScript (JS)</h3>
-        <p>Kemampuan menambahkan interaktivitas pada web, seperti validasi form, slider, pop-up, dan animasi.</p>
-      </div>
- <div class="item">
-        <h3>Jaringan Komputer (Network)</h3>
-        <p>Skill dalam merancang, membangun, dan mengkonfigurasi jaringan LAN/WAN, termasuk IP addressing dan troubleshooting jaringan.</p>
-      </div>
- <div class="item">
-        <h3>Desain Web</h3>
-        <p>Kemampuan merancang tampilan dan user interface (UI) web yang menarik dan mudah digunakan dengan memperhatikan prinsip UX (User Experience).</p>
-      </div>
+
+  <section id="contact-section" tabindex="0">
+    <h2>Kontak</h2>
+    <div class="contact-links">
+      <a href="https://wa.me/628568534288" target="_blank" rel="noopener" aria-label="Whatsapp Saya">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M20.52 3.48A11.934 11.934 0 0012 .002C5.374.002 0 5.38 0 12c0 2.122.555 4.168 1.606 5.981L0 24l6.153-1.602a11.954 11.954 0 005.847 1.536c6.626 0 12-5.378 12-12 0-3.198-1.246-6.198-3.48-8.416zM12 21.8a9.748 9.748 0 01-4.987-1.426l-.358-.22-3.647.95.981-3.555-.23-.366A9.734 9.734 0 012.3 12c0-5.376 4.374-9.75 9.7-9.75 2.6 0 5.042 1.01 6.873 2.845a9.689 9.689 0 012.874 6.87c0 5.376-4.374 9.75-9.75 9.75zm5.3-7.88c-.29-.145-1.719-.847-1.985-.942-.267-.099-.46-.148-.654.15-.196.295-.756.942-.927 1.137-.17.197-.343.222-.633.074-.29-.147-1.224-.453-2.334-1.44-.863-.768-1.444-1.715-1.615-2.007-.168-.292-.018-.45.13-.595.134-.134.292-.347.44-.52.15-.176.2-.295.3-.49.1-.197.05-.37-.025-.52-.073-.145-.656-1.57-.897-2.146-.237-.563-.48-.49-.654-.5l-.557-.01c-.19 0-.5.07-.764.37-.258.295-.983.96-.983 2.337 0 1.377 1.007 2.712 1.148 2.9.14.196 1.98 3.04 4.8 4.263.67.289 1.193.462 1.6.591.67.215 1.28.184 1.76.11.537-.085 1.719-.7 1.963-1.377.245-.678.245-1.257.17-1.378-.074-.117-.27-.192-.56-.337z"/>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/maullxt?igsh=M3pubHdpeHdrbWsw&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram Saya">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 1.5A4.25 4.25 0 003.5 7.75v8.5A4.25 4.25 0 007.75 20.5h8.5a4.25 4.25 0 004.25-4.25v-8.5A4.25 4.25 0 0016.25 3.5h-8.5zm9.88 3.22a1.13 1.13 0 11-2.254.003 1.13 1.13 0 012.254-.002zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5a3.5 3.5 0 100 7 3.5 3.5 0 000-7z"/>
+        </svg>
+      </a>
     </div>
   </section>
 </main>
-<script>
-  const btn = document.getElementById('toggleProjectsBtn');
-  const projectsContainer = document.getElementById('projects-container');
 
-  btn.addEventListener('click', () => {
-    const expanded = btn.getAttribute('aria-expanded') === 'true';
+<footer>
+  &copy; 2025 Maull. All rights reserved.
+</footer>
+
+<!-- Modal untuk penjelasan keahlian -->
+<div id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
+  <div id="modalContent">
+    <button id="modalClose" aria-label="Tutup penjelasan keahlian">&times;</button>
+    <h3 id="modalTitle"></h3>
+    <p id="modalDesc"></p>
+  </div>
+</div>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navMenu = document.getElementById('navMenu');
+
+  navToggle.addEventListener('click', () => {
+    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
     if (expanded) {
-      projectsContainer.style.display = 'none';
-      btn.setAttribute('aria-expanded', 'false');
-      projectsContainer.setAttribute('aria-hidden', 'true');
-      btn.textContent = 'Tampilkan Detail Keahlian';
+      navMenu.classList.remove('show');
+      navToggle.setAttribute('aria-expanded', 'false');
     } else {
-      projectsContainer.style.display = 'block';
-      btn.setAttribute('aria-expanded', 'true');
-      projectsContainer.setAttribute('aria-hidden', 'false');
-      btn.textContent = 'Sembunyikan Detail Keahlian';
+      navMenu.classList.add('show');
+      navToggle.setAttribute('aria-expanded', 'true');
+      // Fokus ke item menu pertama
+      const firstLink = navMenu.querySelector('a');
+      if (firstLink) firstLink.focus();
+    }
+  });
+
+  // Tutup menu jika klik di luar
+  document.addEventListener('click', (e) => {
+    if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+      navMenu.classList.remove('show');
+      navToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Tutup menu dengan ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      navMenu.classList.remove('show');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.focus();
+    }
+  });
+
+  // Scroll halus untuk nav link
+  document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        navMenu.classList.remove('show');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+
+  // Modal penjelasan keahlian
+  const skillItems = document.querySelectorAll('.skill-item');
+  const modalOverlay = document.getElementById('modalOverlay');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDesc = document.getElementById('modalDesc');
+  const modalClose = document.getElementById('modalClose');
+
+  skillItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const name = item.getAttribute('data-name');
+      const desc = item.getAttribute('data-desc');
+      modalTitle.textContent = name;
+      modalDesc.textContent = desc;
+      modalOverlay.classList.add('show');
+      modalClose.focus();
+    });
+    // juga keyboard accessible (enter/space)
+    item.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        item.click();
+      }
+    });
+  });
+
+  modalClose.addEventListener('click', () => {
+    modalOverlay.classList.remove('show');
+    // Kembali fokus ke skill yang terakhir dibuka
+    document.activeElement.blur();
+  });
+
+  modalOverlay.addEventListener('click', (e) => {
+    if(e.target === modalOverlay) {
+      modalOverlay.classList.remove('show');
+    }
+  });
+
+  // Tutup modal dengan ESC
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape' && modalOverlay.classList.contains('show')) {
+      modalOverlay.classList.remove('show');
     }
   });
 </script>
-  <footer class="site-footer">
-  <h3>Maull</h3>
-  <p> Student | TJKT </p>
-  <p>© 2025 Maull</p>
-  <div class="social-icons">
-    <a href="https://wa.me/628568534288" target="_blank" title="WhatsApp">
-      <img src="whatsapp.png" alt="WhatsApp" />
-    </a>
-    </a>
-    <a href="https://www.instagram.com/maullxt?igsh=M3pubHdpeHdrbWsw&utm_source=qr" target="_blank" title="Instagram">
-      <img src="instagram.png" alt="Instagram" />
-    </a>
-  </div>
-</footer>
 </body>
 </html>
-</content>
-</create_file>
